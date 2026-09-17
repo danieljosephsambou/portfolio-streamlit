@@ -1,0 +1,14 @@
+# Verrouille Streamlit en mode clair — la palette du portfolio est pensée
+# pour un fond ivoire, et le thème système ne doit pas la basculer.
+
+[theme]
+base = "light"
+primaryColor = "#C64B1B"
+backgroundColor = "#F5F2E9"
+secondaryBackgroundColor = "#EDE8DB"
+textColor = "#10182B"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = true

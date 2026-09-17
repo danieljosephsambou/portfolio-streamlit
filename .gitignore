@@ -1,0 +1,15 @@
+@"
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node — on exclut les modules mais on GARDE le build
+node_modules/
+# NE PAS ignorer dist/ — c'est ce que Streamlit Cloud sert
+
+# OS
+.DS_Store
+Thumbs.db
+"@ | Out-File -Encoding utf8 .gitignore

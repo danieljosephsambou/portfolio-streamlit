@@ -1,0 +1,232 @@
+/* Palette unique — mode clair verrouillé. La page est conçue pour un fond
+   ivoire ; aucun basculement automatique en dark, quel que soit le thème
+   système ou Streamlit. */
+:root,
+:root[data-theme="dark"],
+:root[data-theme="light"] {
+  --ink: #10182B;
+  --ink-2: #2A3247;
+  --paper: #F5F2E9;
+  --paper-2: #EDE8DB;
+  --accent: #C64B1B;
+  --accent-2: #1F6F6A;
+  --gold: #C89434;
+  --muted: #5B5E68;
+  --rule: rgba(16,24,43,0.15);
+  --surface: #FFFDF6;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.matrixlab {
+  padding: 4px;
+  color: var(--ink);
+}
+.matrixlab .eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.matrixlab h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 26px;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.matrixlab .sub {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-bottom: 18px;
+}
+
+.matrix-grid {
+  display: inline-grid;
+  gap: 6px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  position: relative;
+}
+.matrix-grid::before,
+.matrix-grid::after {
+  content: "";
+  position: absolute;
+  top: 8px; bottom: 8px;
+  width: 8px;
+  border: 2px solid var(--ink);
+  border-right: none;
+}
+.matrix-grid::before { left: 3px; }
+.matrix-grid::after {
+  right: 3px;
+  border: 2px solid var(--ink);
+  border-left: none;
+}
+.matrix-grid input {
+  width: 62px;
+  padding: 8px 6px;
+  text-align: center;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  transition: border-color .15s, background .15s;
+}
+.matrix-grid input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .wrap { grid-template-columns: 1fr; }
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.chip {
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  transition: all .15s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+.results { display: grid; gap: 14px; }
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.kpi {
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.kpi .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.kpi .value {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.kpi .value.warn { color: var(--accent); }
+.kpi .value.good { color: var(--accent-2); }
+
+.result-matrix {
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.result-matrix .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.result-matrix .head h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.result-matrix .head .badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.result-matrix .grid {
+  display: grid;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.result-matrix .cell {
+  padding: 6px 10px;
+  text-align: right;
+  background: var(--paper-2);
+  border-radius: 3px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  min-width: 62px;
+}
+
+.power-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.power-control input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+.power-control .k-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  min-width: 32px;
+  text-align: right;
+}
+
+.singular-note {
+  padding: 10px 14px;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  border-left: 3px solid var(--accent);
+  color: var(--ink);
+  border-radius: 3px;
+  font-size: 13px;
+  font-style: italic;
+}
