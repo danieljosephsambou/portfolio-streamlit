@@ -493,7 +493,7 @@ PAGES = {
 
 with st.sidebar:
     st.markdown("# Daniel Joseph *SAMBOU*")
-    st.caption("Développeur & Data Scientist · Dakar")
+    st.caption("Data Scientist Junior · IA enthusiast")
     st.markdown("---")
     if "page" not in st.session_state:
         st.session_state.page = "Accueil"
